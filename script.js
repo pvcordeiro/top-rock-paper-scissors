@@ -10,7 +10,7 @@ const getComputerChoice = () => {
 };
 
 const getHumanChoice = () => {
-    let input = prompt("Please type Rock, Paper or Scissors");
+    let input = prompt("Please type Rock, Paper or Scissors.");
     input = input.toLowerCase();
 
     if (!input) {
