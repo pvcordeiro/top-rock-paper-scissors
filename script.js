@@ -1,32 +1,24 @@
 let humanScore = 0;
 let computerScore = 0;
+const options = ["rock", "paper", "scissors"];
 
 alert("Feeling lucky? The first to score 5 points wins!!!");
+
 const getComputerChoice = () => {
-    const options = ["rock", "paper", "scissors"];
     const random = Math.floor(Math.random() * 3);
-    const choice = options[random];
-    return choice;
+    return options[random];
 };
 
 const getHumanChoice = () => {
     let input = prompt("Please type Rock, Paper or Scissors");
 
-    const choice = input.toLowerCase();
+    if (!input) return alert("Please type something!!!");
 
-    if (choice === "") {
-        alert("Please type something!!!");
-        return getHumanChoice();
-    } else if (
-        choice !== "rock" &&
-        choice !== "paper" &&
-        choice !== "scissors"
-    ) {
-        alert("Please type only one of the three options");
-        return getHumanChoice();
-    } else {
-        return choice;
-    }
+    input = input.toLowerCase();
+
+    if (!options.includes(input)) return alert("Please type something valid");
+
+    return options[input];
 };
 
 const playRound = () => {
@@ -52,9 +44,6 @@ const playRound = () => {
 };
 
 const playGame = () => {
-    humanScore = 0;
-    computerScore = 0;
-
     while (humanScore < 5 && computerScore < 5) {
         playRound();
         alert(`Your Score: ${humanScore}. Computer score: ${computerScore}.`);
