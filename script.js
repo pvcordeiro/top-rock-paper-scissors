@@ -35,6 +35,7 @@ const playRound = () => {
 
     if (human === computer) {
         alert("It's a tie, GO AGANE!");
+        return;
     }
 
     if (
