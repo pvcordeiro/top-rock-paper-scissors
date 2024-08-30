@@ -19,9 +19,8 @@ const getHumanChoice = () => {
     } else if (!options.includes(input)) {
         alert("Please type only one of the three options!");
         return getHumanChoice();
-    } else {
-        return input;
     }
+    return input;
 };
 
 const playRound = () => {
@@ -40,10 +39,9 @@ const playRound = () => {
     ) {
         humanScore++;
         alert(`You win the round! ${humanChoice} beats ${computerChoice}`);
-    } else {
-        computerScore++;
-        alert(`You lose the round! ${computerChoice} beats ${humanChoice}`);
     }
+    computerScore++;
+    alert(`You lose the round! ${computerChoice} beats ${humanChoice}`);
 };
 
 const playGame = () => {
@@ -53,9 +51,8 @@ const playGame = () => {
     }
     if (humanScore === 5) {
         alert("Nice! You're lucky");
-    } else {
-        alert("You lose! RIP BOZO");
     }
+    alert("You lose! RIP BOZO");
 };
 
 playGame();
