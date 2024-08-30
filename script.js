@@ -11,35 +11,38 @@ const getComputerChoice = () => {
 
 const getHumanChoice = () => {
     let input = prompt("Please type Rock, Paper or Scissors");
-
-    if (!input) return alert("Please type something!!!");
-
     input = input.toLowerCase();
 
-    if (!options.includes(input)) return alert("Please type something valid");
-
-    return options[input];
+    if (!input) {
+        alert("Please type something!!!");
+        return getHumanChoice();
+    } else if (!options.includes(input)) {
+        alert("Please type only one of the three options!");
+        return getHumanChoice();
+    } else {
+        return input;
+    }
 };
 
 const playRound = () => {
-    human = getHumanChoice();
-    computer = getComputerChoice();
+    const humanChoice = getHumanChoice();
+    const computerChoice = getComputerChoice();
 
-    if (human === computer) {
-        alert("It's a tie, GO AGANE!");
+    if (humanChoice === computerChoice) {
+        alert(`It's a tie, both chose ${humanChoice} GO AGANE!`);
         return;
     }
 
     if (
-        (human === "rock" && computer === "scissors") ||
-        (human === "scissors" && computer === "paper") ||
-        (human === "paper" && computer === "rock")
+        (humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "scissors" && computerChoice === "paper") ||
+        (humanChoice === "paper" && computerChoice === "rock")
     ) {
         humanScore++;
-        alert(`You win the round! ${human} beats ${computer}`);
+        alert(`You win the round! ${humanChoice} beats ${computerChoice}`);
     } else {
         computerScore++;
-        alert(`You lose the round! ${computer} beats ${human}`);
+        alert(`You lose the round! ${computerChoice} beats ${humanChoice}`);
     }
 };
 
